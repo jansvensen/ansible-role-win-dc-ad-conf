@@ -19,8 +19,6 @@
     ipv4_addresses:
     - '127.0.0.1'
 
-# Source: https://madlabber.wordpress.com/2019/09/08/creating-a-new-active-directory-forest-with-ansible/
-
 - name: Wait for DNS available
   win_wait_for:
     port: 53
