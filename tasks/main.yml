@@ -9,7 +9,6 @@
 
 - name: Reboot server
   win_reboot:
-   msg: 'Installing AD. Rebooting...'
   when: ad.changed
 
 - name: Set internal DNS server 
@@ -18,7 +17,7 @@
     ipv4_addresses:
     - '127.0.0.1'
 
-- name: Wait for DNS available
+- name: Wait for DNS to be available
   win_wait_for:
     port: 53
     delay: 10
