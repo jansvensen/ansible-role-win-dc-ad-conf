@@ -1,5 +1,5 @@
 ---
-- name: Create Domain
+- name: Create domain
   win_domain: >
      domain_admin_user='{{ dc_user_admin }}'
      domain_admin_password='{{ dc_password_admin }}'
@@ -7,10 +7,9 @@
      safe_mode_password='{{ dc_password_safemode }}'
   register: ad
 
-- name: reboot server
+- name: Reboot server
   win_reboot:
    msg: 'Installing AD. Rebooting...'
-   pre_reboot_delay: 15
   when: ad.changed
 
 - name: Set internal DNS server 
