@@ -11,25 +11,12 @@
   win_reboot:
   when: forrest.changed
 
-- name: Create sub-domains
-  win_domain: >
-     domain_admin_user='{{ dc_user_admin }}'
-     domain_admin_password='{{ dc_password_admin }}'
-     dns_domain_name='{{ item }}_{{ domain_dnsname }}'
-     safe_mode_password='{{ dc_password_safemode }}'
-  with_items: '{{ dc_domain_count }}'
-  when: dc_domain_count != None
-  register: forrest
-
-- name: Reboot server
-  win_reboot:
-  when: forrest.changed
-
 - name: Set internal DNS server 
   win_dns_client:
     adapter_names: '*'
     ipv4_addresses:
     - '127.0.0.1'
+  notify: reboot
 
 - name: Wait for DNS to be available
   win_wait_for:
