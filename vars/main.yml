@@ -1,2 +1,7 @@
 ---
 # vars file for ansible-role-win-dc-ad-conf
+
+dc_user_admin: YourAdmin
+dc_password_admin: YourPassword
+domain_dnsname: YourDomainName
+dc_password_safemode: YourPassword
