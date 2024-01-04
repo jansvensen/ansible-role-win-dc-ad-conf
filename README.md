@@ -10,7 +10,7 @@ This role creates an MS Active Directory domain.
 
 - dc_user_admin: The administrative username for creating the domain.
 - dc_password_admin: The administrative user's password.
-- domain_dnsname: The DNS domain name to be used.
+- win.domain.dnsname: The DNS domain name to be used.
 - dc_password_safemode: The safemode password.
 
 ## Dependencies
