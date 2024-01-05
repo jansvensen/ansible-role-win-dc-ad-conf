@@ -3,7 +3,7 @@
   win_domain: >
      domain_admin_user='{{ dc_user_admin }}'
      domain_admin_password='{{ dc_password_admin }}'
-     dns_domain_name='{{ win.domain.dnsname }}'
+     dns_domain_name='{{ domain_dnsname }}'
      safe_mode_password='{{ dc_password_safemode }}'
   register: forrest
 
