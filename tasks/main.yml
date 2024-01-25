@@ -16,7 +16,7 @@
     adapter_names: '*'
     ipv4_addresses:
     - '127.0.0.1'
-  notify: reboot
+  register: dns
 
 - name: Wait for DNS to be available
   win_wait_for:
@@ -24,3 +24,7 @@
     delay: 10
     sleep: 5
     timeout: 600
+
+- name: Reboot server
+  win_reboot:
+  when: dns.changed
