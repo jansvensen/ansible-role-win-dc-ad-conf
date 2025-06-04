@@ -10,7 +10,7 @@
 
 - name: Create a child domain foo.example.com with parent example.com
   microsoft.ad.domain_child:
-    dns_domain_name: '{{ win_domain_dnsname }}'
+    dns_domain_name: '{{ sub_domain_dnsname }}'
     domain_admin_user: '{{ domainjoin_user_name }}'
     domain_admin_password: '{{ domainjoin_user_pw }}'
     safe_mode_password: '{{ domainjoin_user_pw }}'
