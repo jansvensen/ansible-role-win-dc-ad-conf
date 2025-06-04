@@ -11,11 +11,10 @@
 - name: Create a child domain
   microsoft.ad.domain_child:
     dns_domain_name: '{{ dc_domain_dns_name }}'
-    domain_admin_user: '{{ dc_user_admin }}'
-    domain_admin_password: '{{ domainjoin_user_pw }}'
-    safe_mode_password: '{{ domainjoin_user_pw }}'
+    domain_admin_user: '{{ domain_admin_user }}'
+    domain_admin_password: '{{ domain_admin_password }}'
+    safe_mode_password: '{{ domain_admin_password }}'
     parent_domain_name: '{{ dc_domain_root_name }}'
-
   register: subdomain
   when: create_domain == "Sub"
 
