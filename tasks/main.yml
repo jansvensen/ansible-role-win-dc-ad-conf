@@ -4,14 +4,14 @@
      domain_admin_user='{{ dc_user_admin }}'
      domain_admin_password='{{ dc_password_admin }}'
      dns_domain_name='{{ win_domain_dnsname }}'
-     safe_mode_password='{{ dc_password_safemode }}'
+     safe_mode_password='{{ dc_password_admin }}'
   register: forrest
   when: create_domain == "Root"
 
 - name: Create a child domain foo.example.com with parent example.com
   microsoft.ad.domain_child:
     dns_domain_name: '{{ sub_domain_dnsname }}'
-    domain_admin_user: '{{ domainjoin_user_name }}'
+    domain_admin_user: '{{ dc_user_admin }}'
     domain_admin_password: '{{ domainjoin_user_pw }}'
     safe_mode_password: '{{ domainjoin_user_pw }}'
   register: subdomain
