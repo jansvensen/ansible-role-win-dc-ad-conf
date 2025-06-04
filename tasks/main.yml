@@ -3,7 +3,7 @@
   win_domain: >
      domain_admin_user='{{ dc_user_admin }}'
      domain_admin_password='{{ dc_password_admin }}'
-     dns_domain_name='{{ win_domain_dnsname }}'
+     dns_domain_name='{{ sub_domain_dnsname }}'
      safe_mode_password='{{ dc_password_admin }}'
   register: forrest
   when: create_domain == "Root"
