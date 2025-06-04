@@ -6,10 +6,19 @@
      dns_domain_name='{{ win_domain_dnsname }}'
      safe_mode_password='{{ dc_password_safemode }}'
   register: forrest
+  when: create_domain == "Root"
+
+- name: Create a child domain foo.example.com with parent example.com
+  microsoft.ad.domain_child:
+    dns_domain_name: '{{ win_domain_dnsname }}'
+    domain_admin_user: '{{ domainjoin_user_name }}'
+    domain_admin_password: '{{ domainjoin_user_pw }}'
+    safe_mode_password: '{{ domainjoin_user_pw }}'
+  register: subdomain
 
 - name: Reboot server
   win_reboot:
-  when: forrest.changed
+  when: forrest.changed OR subdomain.changed
 
 - name: Set internal DNS server 
   win_dns_client:
