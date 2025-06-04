@@ -15,6 +15,7 @@
     domain_admin_password: '{{ domainjoin_user_pw }}'
     safe_mode_password: '{{ domainjoin_user_pw }}'
   register: subdomain
+  when: create_domain == "Sub"
 
 - name: Reboot server
   win_reboot:
