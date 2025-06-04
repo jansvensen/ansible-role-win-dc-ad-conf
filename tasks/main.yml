@@ -8,7 +8,7 @@
   register: forrest
   when: create_domain == "Root"
 
-- name: Create a child domain foo.example.com with parent example.com
+- name: Create a child domain
   microsoft.ad.domain_child:
     dns_domain_name: '{{ sub_domain_dnsname }}'
     domain_admin_user: '{{ dc_user_admin }}'
