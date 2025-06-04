@@ -10,7 +10,7 @@
 
 - name: Create a child domain
   microsoft.ad.domain_child:
-    dns_domain_name: 'dom-{{ dc_domain_dns_name }}'
+    dns_domain_name: 'dom-{{ dc_domain_dns_name }}' # cannot be servername.domain.tld, obviously
     domain_admin_user: '{{ domain_admin_user }}'
     domain_admin_password: '{{ domain_admin_password }}'
     safe_mode_password: '{{ domain_admin_password }}'
