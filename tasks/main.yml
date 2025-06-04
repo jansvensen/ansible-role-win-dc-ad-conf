@@ -19,7 +19,7 @@
 
 - name: Reboot server
   win_reboot:
-  when: forrest.changed OR subdomain.changed
+  when: forrest.changed or subdomain.changed
 
 - name: Set internal DNS server 
   win_dns_client:
