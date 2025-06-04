@@ -27,6 +27,7 @@
     ipv4_addresses:
     - '127.0.0.1'
   register: dns
+  when: create_domain == "Root"
 
 - name: Wait for DNS to be available
   win_wait_for:
@@ -34,6 +35,7 @@
     delay: 10
     sleep: 5
     timeout: 600
+  when: create_domain == "Root"
 
 - name: Reboot server
   win_reboot:
