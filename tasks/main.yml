@@ -20,7 +20,7 @@
 - name: Reboot server
   win_reboot:
     test_command: "Get-ADUser -Identity Administrator -Properties *"
-  when: forrest.changed or subdomain.changed
+  when: forrest.reboot_required or subdomain.reboot_required
 
 - name: Set internal DNS server 
   win_dns_client:
@@ -41,4 +41,4 @@
 - name: Reboot server
   win_reboot:
     test_command: "Get-ADUser -Identity Administrator -Properties *"
-  when: dns.changed
+  when: dns.reboot_required
