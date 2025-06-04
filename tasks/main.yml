@@ -14,6 +14,8 @@
     domain_admin_user: '{{ dc_user_admin }}'
     domain_admin_password: '{{ domainjoin_user_pw }}'
     safe_mode_password: '{{ domainjoin_user_pw }}'
+    parent_domain_name: '{{ dc_domain_root_name }}'
+
   register: subdomain
   when: create_domain == "Sub"
 
