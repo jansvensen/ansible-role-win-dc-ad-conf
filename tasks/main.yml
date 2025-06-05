@@ -1,6 +1,6 @@
 ---
 - name: Create forrest and base domain
-  win_domain: >
+  microsoft.ad.domain: >
      domain_admin_user='{{ dc_user_admin }}'
      domain_admin_password='{{ dc_password_admin }}'
      dns_domain_name='{{ dc_domain_dns_name }}'
