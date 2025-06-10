@@ -15,7 +15,6 @@
     create_dns_delegation: 'true'
     domain_type: 'child'
     install_dns: 'true'
-    parent_domain_name: 'sj.azure'
   register: subdomain
   when: create_domain == "Sub"
 
